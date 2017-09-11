@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:58abb4377c7a87844504972675827410:118f962bab7926d04cd4c822ecb84fae:ef7663426bf705b25566a93aef3a1571$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+with polygon mode enabled:
+vertices   => points in sprite coordinate system (x0,y0,x1,y1,x2,y2, ...)
+verticesUV => points in sheet coordinate system (x0,y0,x1,y1,x2,y2, ...)
+triangles  => sprite triangulation, 3 vertex indices per triangle
+-->
+<TextureAtlas imagePath="spritesheet.png" width="1920" height="1665">
+    <sprite n="bg1.png" x="0" y="999" w="1920" h="666" pX="0.5" pY="0.5"/>
+    <sprite n="bg2.png" x="0" y="329" w="1920" h="666" pX="0.5" pY="0.5"/>
+    <sprite n="blueLaser1.png" x="1236" y="187" w="225" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="blueLaser2.png" x="1465" y="187" w="225" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="blueLaser3.png" x="916" y="293" w="225" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="blueLaser4.png" x="687" y="293" w="225" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="blueShip1.png" x="112" y="0" w="108" h="108" pX="0.5" pY="0.5"/>
+    <sprite n="blueShip2.png" x="336" y="0" w="108" h="108" pX="0.5" pY="0.5"/>
+    <sprite n="blueShip3.png" x="224" y="0" w="108" h="108" pX="0.5" pY="0.5"/>
+    <sprite n="flame1.png" x="206" y="187" w="202" h="102" pX="0.5" pY="0.5"/>
+    <sprite n="flame2.png" x="0" y="187" w="202" h="102" pX="0.5" pY="0.5"/>
+    <sprite n="flame3.png" x="824" y="187" w="202" h="102" pX="0.5" pY="0.5"/>
+    <sprite n="flame4.png" x="618" y="187" w="202" h="102" pX="0.5" pY="0.5"/>
+    <sprite n="flame5.png" x="1030" y="187" w="202" h="102" pX="0.5" pY="0.5"/>
+    <sprite n="flame6.png" x="412" y="187" w="202" h="102" pX="0.5" pY="0.5"/>
+    <sprite n="player.png" x="672" y="0" w="121" h="62" pX="0.5" pY="0.5"/>
+    <sprite n="redLaser1.png" x="1694" y="187" w="225" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="redLaser2.png" x="0" y="293" w="225" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="redLaser3.png" x="458" y="293" w="225" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="redLaser4.png" x="229" y="293" w="225" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="redShip1.png" x="560" y="0" w="108" h="108" pX="0.5" pY="0.5"/>
+    <sprite n="redShip2.png" x="448" y="0" w="108" h="108" pX="0.5" pY="0.5"/>
+    <sprite n="redShip3.png" x="0" y="0" w="108" h="108" pX="0.5" pY="0.5"/>
+    <sprite n="shield1.png" x="1512" y="0" w="183" h="183" pX="0.5" pY="0.5"/>
+    <sprite n="shield2.png" x="1325" y="0" w="183" h="183" pX="0.5" pY="0.5"/>
+    <sprite n="shield3.png" x="1699" y="0" w="183" h="183" pX="0.5" pY="0.5"/>
+    <sprite n="star1.png" x="1061" y="0" w="128" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="star2.png" x="929" y="0" w="128" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="star3.png" x="797" y="0" w="128" h="128" pX="0.5" pY="0.5"/>
+    <sprite n="star4.png" x="1193" y="0" w="128" h="128" pX="0.5" pY="0.5"/>
+</TextureAtlas>
