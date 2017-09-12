@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://objects/pickup.tres" type="SpriteFrames" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+frames = ExtResource( 1 )
+animation = "default"
+frame = 1
+playing = true
+
+

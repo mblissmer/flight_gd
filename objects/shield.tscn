@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://objects/shield.tres" type="SpriteFrames" id=1]
+
+[node name="Shield" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+frames = ExtResource( 1 )
+animation = "default"
+frame = 2
+playing = true
+
+
