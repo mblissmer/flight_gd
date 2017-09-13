@@ -14,8 +14,6 @@ func _ready():
 	get_node("bgFar1").set_pos(Vector2(bgFarSize.width, screenSize.height-bgFarSize.height))
 	get_node("bgNear").set_pos(Vector2(0, screenSize.height-bgNearSize.height))
 	get_node("bgNear1").set_pos(Vector2(bgNearSize.width, screenSize.height-bgNearSize.height))
-	print (str(get_node("bgNear").get_pos()))
-	print (str(get_node("bgNear1").get_pos()))
 	set_process(true)
 
 func _process(delta):
