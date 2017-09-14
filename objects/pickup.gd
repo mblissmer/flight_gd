@@ -1,6 +1,7 @@
 extends Area2D
 
 var active = false
+var name = "pickup"
 var speed = 200
 
 func _ready():

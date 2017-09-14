@@ -30,7 +30,6 @@ transform/rot = 90.0
 transform/scale = Vector2( 0.3, 0.3 )
 frames = ExtResource( 1 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
