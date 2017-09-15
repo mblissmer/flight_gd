@@ -15,7 +15,7 @@
    viewBox="0 0 744.09448819 1052.3622047"
    id="svg4364"
    version="1.1"
-   inkscape:version="0.92.1 r15371"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    sodipodi:docname="ship.svg">
   <sodipodi:namedview
      id="base"
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710681"
-     inkscape:cx="5537.6202"
-     inkscape:cy="7585.3406"
+     inkscape:zoom="0.35355341"
+     inkscape:cx="5954.2347"
+     inkscape:cy="8197.2638"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -16153,7 +16153,7 @@
        transform="rotate(-90)" />
     <g
        id="g7084"
-       transform="translate(146.81332,1226.25)"
+       transform="rotate(-90,6276.5385,-7448.8245)"
        inkscape:export-filename="C:\Users\mblissmer\Desktop\g7084.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
