@@ -2,7 +2,7 @@
 
 [ext_resource path="res://objects/player.gd" type="Script" id=1]
 [ext_resource path="res://images/path4485.png" type="Texture" id=2]
-[ext_resource path="res://images/spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://images/rect7998.png" type="Texture" id=3]
 [ext_resource path="res://images/g6846.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -53,7 +53,6 @@ color/color = Color( 0.746094, 0, 0, 1 )
 
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
-region = true
 region_rect = Rect2( 672, 0, 121, 62 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
