@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/Laser.gd" type="Script" id=1]
-[ext_resource path="res://images/path7074.png" type="Texture" id=2]
-[ext_resource path="res://images/rect7076.png" type="Texture" id=3]
-[ext_resource path="res://images/g7084.png" type="Texture" id=4]
+[ext_resource path="res://images/path7018.png" type="Texture" id=2]
+[ext_resource path="res://images/rect7077.png" type="Texture" id=3]
+[ext_resource path="res://images/path6988.png" type="Texture" id=4]
 
 [node name="Laser" type="RayCast2D"]
 
@@ -31,10 +31,8 @@ region_rect = Rect2( 0, 0, 715, 555 )
 
 [node name="End" type="Sprite" parent="."]
 
-visibility/blend_mode = 1
-transform/scale = Vector2( 0.1, 0.1 )
+transform/scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
-centered = false
-offset = Vector2( -463, 0 )
+offset = Vector2( -30, -20 )
 
 

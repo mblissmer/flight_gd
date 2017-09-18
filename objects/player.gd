@@ -50,7 +50,7 @@ func _process(delta):
 			var obj = o.get_node(".")
 			if obj.name == "pickup":
 				obj.picked_up()
-				pickupCounter+=1 #test
+				pickupCounter+=1
 				if pickupCounter <= swirls.size():
 					swirls[pickupCounter-1].show()
 		
