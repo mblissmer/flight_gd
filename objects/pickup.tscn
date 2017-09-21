@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://objects/pickup.gd" type="Script" id=1]
-[ext_resource path="res://objects/pickup.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://images/path16977.png" type="Texture" id=2]
+[ext_resource path="res://images/path16979.png" type="Texture" id=3]
+[ext_resource path="res://images/path16981.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -26,11 +28,16 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="low" type="Sprite" parent="."]
 
-transform/scale = Vector2( 0.25, 0.25 )
-frames = ExtResource( 2 )
-animation = "default"
-playing = true
+texture = ExtResource( 2 )
+
+[node name="mid" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+
+[node name="high" type="Sprite" parent="."]
+
+texture = ExtResource( 4 )
 
 

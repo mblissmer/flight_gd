@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://objects/Backgrounds.gd" type="Script" id=1]
-[ext_resource path="res://images/spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://images/g13200.png" type="Texture" id=2]
 
 [node name="Backgrounds" type="Node2D"]
 
@@ -12,14 +12,14 @@ script/script = ExtResource( 1 )
 texture = ExtResource( 2 )
 centered = false
 region = true
-region_rect = Rect2( 0, 329, 1920, 666 )
+region_rect = Rect2( 0, 671, 1920, 666 )
 
 [node name="bgFar1" type="Sprite" parent="."]
 
 texture = ExtResource( 2 )
 centered = false
 region = true
-region_rect = Rect2( 0, 329, 1920, 666 )
+region_rect = Rect2( 0, 671, 1920, 666 )
 
 [node name="bgNear" type="Sprite" parent="."]
 
@@ -27,7 +27,7 @@ transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 centered = false
 region = true
-region_rect = Rect2( 0, 999, 3840, 666 )
+region_rect = Rect2( 0, 0, 1920, 666 )
 
 [node name="bgNear1" type="Sprite" parent="."]
 
@@ -35,6 +35,6 @@ transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 centered = false
 region = true
-region_rect = Rect2( 0, 999, 3840, 666 )
+region_rect = Rect2( 0, 0, 1920, 666 )
 
 

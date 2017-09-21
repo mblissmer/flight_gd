@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://objects/player.gd" type="Script" id=1]
-[ext_resource path="res://images/path4485.png" type="Texture" id=2]
-[ext_resource path="res://images/rect7998.png" type="Texture" id=3]
-[ext_resource path="res://images/g6846.png" type="Texture" id=4]
+[ext_resource path="res://images/g7042.png" type="Texture" id=2]
+[ext_resource path="res://images/g6846.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -28,7 +27,6 @@ transform/pos = Vector2( -25.0699, 0.935471 )
 config/amount = 16
 config/lifetime = 0.5
 config/process_mode = 1
-config/texture = ExtResource( 2 )
 params/direction = 275.0
 params/spread = 10.0
 params/linear_velocity = 50.0
@@ -51,8 +49,7 @@ color/color = Color( 0.746094, 0, 0, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 672, 0, 121, 62 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -63,25 +60,21 @@ _update_shape_index = 0
 
 [node name="Swirl" type="Sprite" parent="."]
 
-transform/scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Swirl1" type="Sprite" parent="."]
 
 transform/rot = 90.0
-transform/scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Swirl2" type="Sprite" parent="."]
 
 transform/rot = 180.0
-transform/scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="Swirl3" type="Sprite" parent="."]
 
 transform/rot = 270.0
-transform/scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 
