@@ -13,6 +13,8 @@ func _process(delta):
 	var pos = get_pos()
 	pos.x -= speed * delta
 	set_pos(pos)
+	if pos.x < 50:
+		cleared()
 	
 func cleared():
 	queue_free()
