@@ -1,15 +1,50 @@
 extends Node2D
 
 var name = "laserEnemy"
+var stage = 1
+var nextStage = 2
+var laserFiring = false
+var speed = 100
+var pauseTime = 3
+var timer = 0
 
-func ready():
-	get_node("AnimationPlayer").play("movement")	
-
-func move():
-	get_node("AnimationPlayer").play("movement")
-
-func fireLaser():
+func _ready():
+	pass
+	set_process(true)
+	
+func _process(delta):
+	var pos = get_pos()
+	if stage == 1:
+		pos.x -= speed * delta
+		print("stage 1")
+		if pos.x <= 800:
+			stage = 999
+			nextStage = 2
+	elif stage == 2: 
+		pos.y += speed * delta
+		print("stage 2")
+		if pos.y >= 600:
+			stage = 999
+			nextStage = 3
+	elif stage == 3:
+		pos.x += speed * delta
+		print("stage 3")
+		if pos.x > get_viewport_rect().size.x + 100:
+			queue_free()
+	else:
+		timer += delta
+		if timer >= pauseTime:
+			stage = nextStage
+			timer = 0
+	set_pos(pos)
+	
+	if laserFiring:
+		pass
+	
+	
+func fireLaser(isFiring):
 	print("FIRE!")
+	laserFiring = isFiring
 
 func clear():
 	queue_free()

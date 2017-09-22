@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Node
 
 # class member variables go here, for example:
 # var a = 2
@@ -9,7 +9,5 @@ func _ready():
 	# Initialization here
 	pass
 
-
-func _on_newGame_pressed():
+func _on_newGame_released():
 	Transition.fade_to("res://scenes/Game.tscn")
-#	pass
