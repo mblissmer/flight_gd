@@ -16,19 +16,16 @@ func _process(delta):
 	var pos = get_pos()
 	if stage == 1:
 		pos.x -= speed * delta
-		print("stage 1")
 		if pos.x <= 800:
 			stage = 999
 			nextStage = 2
 	elif stage == 2: 
 		pos.y += speed * delta
-		print("stage 2")
 		if pos.y >= 600:
 			stage = 999
 			nextStage = 3
 	elif stage == 3:
 		pos.x += speed * delta
-		print("stage 3")
 		if pos.x > get_viewport_rect().size.x + 100:
 			queue_free()
 	else:

@@ -1,6 +1,6 @@
 extends Area2D
 
-var active = false
+#var active = false
 var name = "pickup"
 var speed = 200
 var lowTurnSpeed = 5
@@ -20,6 +20,8 @@ func _process(delta):
 	var pos = get_pos()
 	pos.x -= speed * delta
 	set_pos(pos)
+	if pos.x <= -100:
+		queue_free()
 	
 	var lrot = low.get_rot()
 	var mrot = mid.get_rot()
@@ -43,8 +45,8 @@ func _process(delta):
 func picked_up():
 	queue_free()
 
-func get_state():
-	return active
-	
-func set_state(state):
-	active = state
+#func get_state():
+#	return active
+#	
+#func set_state(state):
+#	active = state

@@ -1,0 +1,34 @@
+{
+  "Layout": [
+    {
+      "time": 1,
+      "event": 1,
+      "yaxis": 100
+    },
+    {
+      "time": 1,
+      "event": 1,
+      "yaxis": 200
+    },
+    {
+      "time": 1,
+      "event": 1,
+      "yaxis": 300
+    },
+    {
+      "time": 2,
+      "event": 2,
+      "yaxis": 200
+    },
+    {
+      "time": 3,
+      "event": 3,
+      "yaxis": 300
+    },
+    {
+      "time": 4,
+      "event": 4,
+      "yaxis": 400
+    }
+  ]
+}
