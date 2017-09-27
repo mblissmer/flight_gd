@@ -14,3 +14,14 @@ func _ready():
 func _process(delta):
 	if (Input.is_action_pressed("ui_cancel")):
 		get_tree().quit()
+	if (Input.is_action_pressed("pause")):
+	    get_node("Popup").show()
+	    get_tree().set_pause(true)
+
+
+func _on_Button_released():
+	pass
+
+func _on_Button_pressed():
+    get_node("Popup").hide()
+    get_tree().set_pause(false)

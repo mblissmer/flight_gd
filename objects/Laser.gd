@@ -3,7 +3,7 @@ extends RayCast2D
 var mid
 var start
 var end
-var midOffset
+#var midOffset
 var midScale
 var midScaleMin
 var midScaleMax
@@ -16,7 +16,7 @@ func _ready():
 	midScale = mid.get_scale()
 	midScaleMin = midScale.x - (midScale.x * 0.05)
 	midScaleMax = midScale.x + (midScale.x * 0.05)
-	midOffset = mid.get_region_rect().size.height / 2
+#	midOffset = mid.get_region_rect().size.height / 2
 	set_process(true)
 	
 func _process(delta):
@@ -28,23 +28,24 @@ func _process(delta):
 	start.set_rot(srot)
 	
 	# animate mid
-	midScale.x = rand_range(midScaleMin,midScaleMax)
-	mid.set_scale(midScale)
+#	midScale.x = rand_range(midScaleMin,midScaleMax)
+#	mid.set_scale(midScale)
 	
-	# animate end
-	var erot = end.get_rot()
-	erot += turnSpeed * delta
-	if erot > PI*2:
-		erot -= PI*2
-	end.set_rot(erot)
-	
+#	# animate end
+#	var erot = end.get_rot()
+#	erot += turnSpeed * delta
+#	if erot > PI*2:
+#		erot -= PI*2
+#	end.set_rot(erot)
+
 	# move mid
-	var mouse = get_viewport().get_mouse_pos()
-	mid.look_at(mouse)
-	var pos = mid.get_pos() 
+#	var gpos = get_global_pos()
+#	var endpos = Vector2(-100, gpos.y)
 	var size = mid.get_region_rect().size
-	size.y = pos.distance_to(mouse) / midScale.y + midOffset
+#	size.y = gpos.distance_to(endpos) # / midScale.y
+	size.y = 100
+	var pos = get_pos()
 	mid.set_region_rect(Rect2(pos,size))
 	
 	#move end
-	end.set_pos(mouse)
+#	end.set_pos(mouse)

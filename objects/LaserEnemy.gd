@@ -4,6 +4,7 @@ var name = "laserEnemy"
 var stage = 1
 var nextStage = 2
 var laserFiring = false
+var laserTimer = 0
 var speed = 100
 var pauseTime = 3
 var timer = 0
@@ -32,10 +33,13 @@ func _process(delta):
 		timer += delta
 		if timer >= pauseTime:
 			stage = nextStage
+			if nextStage == 2:
+				laserFiring = true
 			timer = 0
 	set_pos(pos)
 	
 	if laserFiring:
+		
 		pass
 	
 	
