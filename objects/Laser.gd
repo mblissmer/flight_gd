@@ -3,11 +3,17 @@ extends RayCast2D
 var mid
 var start
 var end
-#var midOffset
 var midScale
 var midScaleMin
 var midScaleMax
-var turnSpeed = 5
+var turnSpeed = 2
+var minTurnSpeed = 2
+var turnUpSpeed = 5
+var firing = false
+var endPointX = 0
+var timer = 0
+var timeLimit
+var fireLaser = false
 
 func _ready():
 	mid = get_node("Mid")
@@ -16,10 +22,23 @@ func _ready():
 	midScale = mid.get_scale()
 	midScaleMin = midScale.x - (midScale.x * 0.05)
 	midScaleMax = midScale.x + (midScale.x * 0.05)
-#	midOffset = mid.get_region_rect().size.height / 2
 	set_process(true)
 	
 func _process(delta):
+	if fireLaser and !firing:
+		if timer < timeLimit:
+			timer += delta
+			turnSpeed += delta * turnUpSpeed
+		else:
+			firing = true
+	
+	if firing and !fireLaser:
+		firing = false
+	
+	if !firing and !fireLaser and turnSpeed > minTurnSpeed:
+		turnSpeed -= delta * turnUpSpeed
+
+	
 	# animate start
 	var srot = start.get_rot()
 	srot += turnSpeed * delta
@@ -28,8 +47,8 @@ func _process(delta):
 	start.set_rot(srot)
 	
 	# animate mid
-#	midScale.x = rand_range(midScaleMin,midScaleMax)
-#	mid.set_scale(midScale)
+	midScale.x = rand_range(midScaleMin,midScaleMax)
+	mid.set_scale(midScale)
 	
 #	# animate end
 #	var erot = end.get_rot()
@@ -39,12 +58,14 @@ func _process(delta):
 #	end.set_rot(erot)
 
 	# move mid
-#	var gpos = get_global_pos()
-#	var endpos = Vector2(-100, gpos.y)
+	var gpos = get_global_pos()
+	if firing:
+		endPointX = -100
+	else: endPointX = gpos.x
+	var endpos = Vector2(endPointX, gpos.y)
 	var size = mid.get_region_rect().size
-#	size.y = gpos.distance_to(endpos) # / midScale.y
-	size.y = 100
-	var pos = get_pos()
+	size.y = gpos.distance_to(endpos)
+	var pos = mid.get_pos()
 	mid.set_region_rect(Rect2(pos,size))
 	
 	#move end

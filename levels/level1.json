@@ -2,8 +2,17 @@
   "Layout": [
     {
       "time": 1,
-      "event": 1,
-      "yaxis": 100
+      "event": 4,
+      "yaxis": 100,
+	  "xstop": 900,
+	  "ystop": 300
+    },
+    {
+      "time": 1,
+      "event": 4,
+      "yaxis": 700,
+	  "xstop": 900,
+	  "ystop": 500
     },
     {
       "time": 1,
@@ -24,11 +33,6 @@
       "time": 3,
       "event": 3,
       "yaxis": 300
-    },
-    {
-      "time": 4,
-      "event": 4,
-      "yaxis": 400
     }
   ]
 }

@@ -7,14 +7,19 @@ var ySpeed = 100
 var yLimit = 100
 var screensize
 var size
+var options = {}
+var shot = load("res://objects/EnemyShot.tscn")
+var parent 
 
 func _ready():
-	var pos = get_pos()
-	yStart = pos.y
+	set_pos(Vector2(get_viewport_rect().size.x + 10, options["yaxis"]))
+	yStart = options["yaxis"]
 	screensize = get_viewport_rect().size
 	if yStart > screensize.height/2:
 		ySpeed *= -1
 	size = get_node("Sprite").get_region_rect().size
+	
+	parent = get_parent()
 	set_process(true)
 
 func _process(delta):
@@ -30,3 +35,9 @@ func _process(delta):
 	
 func cleared():
 	queue_free()
+
+func _on_Timer_timeout():
+	var s = shot.instance()
+	s.set_global_pos(get_global_pos())
+	s.speed += speed
+	parent.add_child(s)

@@ -32,7 +32,7 @@ func _process(delta):
 
 func chooseSpawn(pointer):
 	var type = layout["Layout"][pointer]["event"]
-	var yaxis = layout["Layout"][pointer]["yaxis"]
+	var options = layout["Layout"][pointer]
 	var spawn 
 	if type == 1: 
 		spawn = pickup
@@ -42,10 +42,6 @@ func chooseSpawn(pointer):
 		spawn = enemy2
 	elif type == 4:
 		spawn = enemy3
-	spawnPickup(spawn, yaxis)
-
-func spawnPickup(spawn, yaxis):
 	var s = spawn.instance()
-	s.set_pos(Vector2(get_viewport_rect().size.x + 10, yaxis))
+	s.options = options
 	add_child(s)
-	

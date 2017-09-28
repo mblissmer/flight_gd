@@ -1,6 +1,6 @@
 extends Area2D
 
-#var active = false
+var options = {}
 var name = "pickup"
 var speed = 200
 var lowTurnSpeed = 5
@@ -11,6 +11,7 @@ var mid
 var high
 
 func _ready():
+	set_pos(Vector2(get_viewport_rect().size.x + 10, options["yaxis"]))
 	low = get_node("low")
 	mid = get_node("mid")
 	high = get_node("high")
@@ -44,9 +45,3 @@ func _process(delta):
 	
 func picked_up():
 	queue_free()
-
-#func get_state():
-#	return active
-#	
-#func set_state(state):
-#	active = state
