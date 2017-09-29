@@ -18,7 +18,7 @@ texture = ExtResource( 2 )
 [node name="Laser" type="RayCast2D" parent="."]
 
 transform/pos = Vector2( -32, 0 )
-enabled = false
+enabled = true
 cast_to = Vector2( 0, 50 )
 layer_mask = 1
 type_mask = 15
@@ -42,6 +42,7 @@ region_rect = Rect2( 0, 0, 44, 50 )
 [node name="End" type="Sprite" parent="Laser"]
 
 visibility/visible = false
+transform/scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 6 )
 
 

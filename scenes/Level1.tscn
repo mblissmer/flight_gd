@@ -8,13 +8,58 @@
 
 script/script = ExtResource( 1 )
 
-[node name="Backgrounds" parent="." instance=ExtResource( 2 )]
+[node name="Layer1" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
+
+[node name="Backgrounds" parent="Layer1" instance=ExtResource( 2 )]
+
+[node name="Layer2" type="Node2D" parent="."]
+
+[node name="Layer3" type="Node2D" parent="."]
+
+[node name="Player" parent="Layer3" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 160.892, 95.7825 )
 
-[node name="HSlider" type="HSlider" parent="."]
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Popup" type="Popup" parent="UILayer"]
+
+process/pause_mode = 2
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 400.0
+margin/top = 300.0
+margin/right = 600.0
+margin/bottom = 500.0
+popup/exclusive = false
+
+[node name="Button" type="Button" parent="UILayer/Popup"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 100.0
+margin/bottom = 50.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Un-pause"
+flat = false
+
+[node name="HSlider" type="HSlider" parent="UILayer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -35,38 +80,8 @@ tick_count = 5
 ticks_on_borders = true
 focus_mode = 2
 
-[node name="Popup" type="Popup" parent="."]
+[connection signal="pressed" from="UILayer/Popup/Button" to="." method="_on_Button_pressed"]
 
-process/pause_mode = 2
-visibility/visible = false
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 400.0
-margin/top = 300.0
-margin/right = 600.0
-margin/bottom = 500.0
-popup/exclusive = false
-
-[node name="Button" type="Button" parent="Popup"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 100.0
-margin/bottom = 50.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "Un-pause"
-flat = false
-
-[connection signal="pressed" from="Popup/Button" to="." method="_on_Button_pressed"]
-
-[connection signal="released" from="Popup/Button" to="." method="_on_Button_released"]
+[connection signal="released" from="UILayer/Popup/Button" to="." method="_on_Button_released"]
 
 

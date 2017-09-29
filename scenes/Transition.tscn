@@ -34,7 +34,7 @@ tracks/1/keys = {
 
 [node name="Node2D" type="CanvasLayer"]
 
-layer = 2
+layer = 128
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )

@@ -55,6 +55,7 @@ func _process(delta):
 		if timer >= pauseTime:
 			stage = nextStage
 			timer = 0
+			pauseTime /= 4
 	set_pos(pos)
 
 func clear():

@@ -9,7 +9,7 @@ var screensize
 var size
 var options = {}
 var shot = load("res://objects/EnemyShot.tscn")
-var parent 
+var shotlayer 
 
 func _ready():
 	set_pos(Vector2(get_viewport_rect().size.x + 10, options["yaxis"]))
@@ -19,7 +19,8 @@ func _ready():
 		ySpeed *= -1
 	size = get_node("Sprite").get_region_rect().size
 	
-	parent = get_parent()
+	shotlayer = get_node("/root/Level1/Layer2/")
+	shotlayer.print_tree()
 	set_process(true)
 
 func _process(delta):
@@ -40,4 +41,4 @@ func _on_Timer_timeout():
 	var s = shot.instance()
 	s.set_global_pos(get_global_pos())
 	s.speed += speed
-	parent.add_child(s)
+	shotlayer.add_child(s)
