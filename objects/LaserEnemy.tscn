@@ -15,13 +15,9 @@ script/script = ExtResource( 1 )
 
 texture = ExtResource( 2 )
 
-[node name="Laser" type="RayCast2D" parent="."]
+[node name="Laser" type="Node2D" parent="."]
 
 transform/pos = Vector2( -32, 0 )
-enabled = true
-cast_to = Vector2( 0, 50 )
-layer_mask = 1
-type_mask = 15
 script/script = ExtResource( 3 )
 
 [node name="Start" type="Sprite" parent="Laser"]
@@ -32,7 +28,7 @@ texture = ExtResource( 4 )
 [node name="Mid" type="Sprite" parent="Laser"]
 
 visibility/blend_mode = 1
-transform/rot = 270.0
+transform/rot = -90.0
 texture = ExtResource( 5 )
 centered = false
 offset = Vector2( -22, -5 )

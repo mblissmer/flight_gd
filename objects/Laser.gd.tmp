@@ -134,7 +134,10 @@ func _fixed_process(delta):
 		var globalPointY = rayDistance*i + mid.get_global_pos().y - rect.size.x/2
 		rayPoints.append(localPointY)
 #		print("Local: "  + str(localPointY) + ", Global: " + str(globalPointY))
-		var ray = space_state.intersect_ray(Vector2(globalPointX,globalPointY), Vector2(0,globalPointY))
+		var ray = space_state.intersect_ray(
+		Vector2(globalPointX,globalPointY), 
+		Vector2(0,globalPointY),0,0,
+		31)
 		if (not ray.empty()):
 			print("Hit at point: ",ray.position)
 			print(ray.position.distance_to(mid.get_global_pos()))
