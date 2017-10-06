@@ -20,7 +20,6 @@ func _ready():
 	size = get_node("Sprite").get_region_rect().size
 	
 	shotlayer = get_node("/root/Level1/Layer2/")
-	shotlayer.print_tree()
 	set_process(true)
 
 func _process(delta):

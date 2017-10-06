@@ -22,6 +22,8 @@ var rect
 var rayDistance
 var rayPoints = []
 var hitPoint
+var hitNormal
+var reflect = false
 
 func _ready():
 	mid = get_node("Mid")
@@ -34,7 +36,6 @@ func _ready():
 	start.set_scale(Vector2(scale,scale))
 	rect = mid.get_region_rect()
 	rayDistance = rect.size.x / (rayCount - 1)
-	print (rayDistance)
 	set_process(true)
 	set_fixed_process(true)
 	
@@ -80,66 +81,70 @@ func _process(delta):
 	midScale.x = rand_range(midScaleMin,midScaleMax)
 	mid.set_scale(midScale)
 	
-#	# animate end
-
-
 	# move mid
-#	var pos = mid.get_pos()
-#	var gpos = mid.get_global_pos()
-#	topRC.set_cast_to(Vector2(pos.x-2000,pos.y))
-#	bottomRC.set_cast_to(Vector2(pos.x-2000,pos.y))
-#	if firing:
-#		var isColliding = false
-#		var whichRC
-#		if topRC.is_colliding():
-#			isColliding = true
-#			whichRC = topRC
-#		elif midRC.is_colliding():
-#			isColliding = true
-#			whichRC = midRC
-#		elif bottomRC.is_colliding():
-#			isColliding = true
-#			whichRC = bottomRC
-#		if isColliding:
-#			endPointX = whichRC.get_collision_point().x
-#			end.set_global_pos(whichRC.get_collision_point())
-#			if end.is_hidden():
-#				end.show()
-#			var erot = end.get_rot()
-#			erot += turnSpeed * delta
-#			if erot > PI*2:
-#				erot -= PI*2
-#			end.set_rot(erot)
-#		else:
-#			if end.is_visible():
-#				end.hide()
-#			endPointX = pos.x-2000
-#	else: endPointX = gpos.x
-#	var endpos = Vector2(endPointX, gpos.y)
-#	var size = mid.get_region_rect().size
-#	size.y = gpos.distance_to(endpos)
-#	mid.set_region_rect(Rect2(pos,size))
+	var gpos = mid.get_global_pos()
+	var endPointX = gpos.x
+	if end.is_visible():
+		end.hide()
+	if firing:
+		if hitPoint != null:
+			endPointX = hitPoint.x
+			if end.is_hidden():
+				end.show()
+		else: 
+			endPointX = 0
+	var endpos = Vector2(endPointX, gpos.y)
+	var size = mid.get_region_rect().size
+	size.y = gpos.distance_to(endpos)
+	mid.set_region_rect(Rect2(mid.get_pos(),size))
+
+	# animate end if showing
+	if end.is_visible():
+		end.set_global_pos(Vector2(hitPoint.x,gpos.y))
+		var erot = end.get_rot()
+		erot += turnSpeed * delta / 2
+		if erot > PI*2:
+			erot -= PI*2
+		end.set_rot(erot)
+
 
 func _fixed_process(delta): 
-#	var rect = mid.get_region_rect()
-#	var pos = mid.get_pos()
-#	var gpos = mid.get_global_pos()
-	var space_state = get_world_2d().get_direct_space_state()
-	rayPoints.clear()
-	var nearestHit = 0
-	for i in range(rayCount):
-#		var localPointX = 0
-		var localPointY = rayDistance*i-rect.size.x/2
-		var globalPointX = mid.get_global_pos().x
-		var globalPointY = rayDistance*i + mid.get_global_pos().y - rect.size.x/2
-		rayPoints.append(localPointY)
-#		print("Local: "  + str(localPointY) + ", Global: " + str(globalPointY))
-		var ray = space_state.intersect_ray(Vector2(globalPointX,globalPointY), Vector2(0,globalPointY))
-		if (not ray.empty()):
-			print("Hit at point: ",ray.position)
-			print(ray.position.distance_to(mid.get_global_pos()))
-	update()
-
-func _draw():
-	for i in range(rayPoints.size()):
-		draw_line(Vector2(0,rayPoints[i]),Vector2(-2000,rayPoints[i]), Color(255,0,0))
+	if firing:
+		var rect = mid.get_region_rect()
+		var gpos = mid.get_global_pos()
+		var space_state = get_world_2d().get_direct_space_state()
+		rayPoints.clear()
+		reflect = false
+		var nearestHit
+		for i in range(rayCount):
+			var globalPointY = rayDistance*i + gpos.y - rect.size.x/2
+			var ray = space_state.intersect_ray(
+			Vector2(gpos.x,globalPointY), 
+			Vector2(0,globalPointY))
+			if (not ray.empty()):
+				if nearestHit == null:
+					nearestHit = ray.position
+				else:
+					var oldDist = nearestHit.distance_to(gpos)
+					var newDist = ray.position.distance_to(gpos)
+					if newDist < oldDist:
+						nearestHit = ray.position
+				rayPoints.append(ray.position)
+				if ray.collider.get_name() == "Shield":
+					reflect = true
+					hitNormal = ray.normal
+			else: rayPoints.append(Vector2(0,globalPointY))
+		hitPoint = nearestHit
+		
+		if reflect:
+			print(hitPoint)
+			print(hitNormal)
+#	update()
+#
+#func _draw():
+#	if firing:
+#		var gpos = mid.get_global_pos()
+#		for i in range(rayPoints.size()):
+#			draw_line(Vector2(0,rayPoints[i].y - gpos.y),
+#			Vector2(rayPoints[i].x - gpos.x, rayPoints[i].y - gpos.y), 
+#			Color(0,0,255))

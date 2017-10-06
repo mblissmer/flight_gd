@@ -15,7 +15,17 @@
     {
       "time": 1,
       "event": 1,
-      "yaxis": 300
+      "yaxis": 225
+    },
+	    {
+      "time": 1,
+      "event": 1,
+      "yaxis": 250
+    },
+    {
+      "time": 1,
+      "event": 1,
+      "yaxis": 275
     },
     {
       "time": 2,

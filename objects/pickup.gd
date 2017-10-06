@@ -1,7 +1,6 @@
 extends Area2D
 
 var options = {}
-var name = "pickup"
 var speed = 200
 var lowTurnSpeed = 5
 var midTurnSpeed = 6
@@ -18,7 +17,7 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	var pos = get_pos()
+	var pos = get_global_pos()
 	pos.x -= speed * delta
 	set_pos(pos)
 	if pos.x <= -100:
@@ -42,6 +41,15 @@ func _process(delta):
 	if hrot > PI*2:
 		hrot -= PI*2
 	high.set_rot(hrot)
+	
+	var overlap = get_overlapping_bodies()
+	if overlap.size() > 0:
+		for o in overlap:
+			var obj = o.get_node(".")
+			if obj.get_name() == "Player":
+				obj.pickup()
+				picked_up()
+
 	
 func picked_up():
 	queue_free()

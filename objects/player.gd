@@ -1,4 +1,5 @@
-extends Area2D
+extends KinematicBody2D
+
 
 var screenSize
 var playerSize
@@ -9,8 +10,11 @@ var swirlSpeed = 5
 var swirlTopSpeed = 10
 var swirlSpeedInc = 5
 var pickupCounter = 0
+var shieldOn = false
+var shield
 
 func _ready():
+	shield = get_node("Shield")
 	screenSize = get_viewport_rect().size
 	playerSize = get_node("Sprite").get_region_rect().size
 	swirls = [get_node("Swirl"),get_node("Swirl1"),get_node("Swirl2"),get_node("Swirl3")]
@@ -44,13 +48,10 @@ func _process(delta):
 			srot -= PI*2
 		s.set_rot(srot)
 	
-	var overlap = get_overlapping_areas()
-	if overlap.size() > 0:
-		for o in overlap:
-			var obj = o.get_node(".")
-			if obj.name == "pickup":
-				obj.picked_up()
-				pickupCounter+=1
-				if pickupCounter <= swirls.size():
-					swirls[pickupCounter-1].show()
-		
+func pickup():
+	pickupCounter+=1
+	if pickupCounter <= swirls.size():
+		swirls[pickupCounter-1].show()
+#	if pickupCounter == swirls.size():
+#		shieldOn = true
+#		shield.show()
