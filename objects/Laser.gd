@@ -137,8 +137,11 @@ func _fixed_process(delta):
 		hitPoint = nearestHit
 		
 		if reflect:
-			print(hitPoint)
+#			print(hitPoint)
 			print(hitNormal)
+#			var ray = space_state.intersect_ray(
+#			Vector2(gpos.x,globalPointY), 
+#			Vector2(0,globalPointY))
 #	update()
 #
 #func _draw():
