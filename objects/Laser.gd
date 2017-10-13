@@ -116,12 +116,14 @@ func _fixed_process(delta):
 		rayPoints.clear()
 		reflect = false
 		var nearestHit
+		var hitCount = 0
 		for i in range(rayCount):
 			var globalPointY = rayDistance*i + gpos.y - rect.size.x/2
 			var ray = space_state.intersect_ray(
 			Vector2(gpos.x,globalPointY), 
 			Vector2(0,globalPointY))
 			if (not ray.empty()):
+				hitCount += 1
 				if nearestHit == null:
 					nearestHit = ray.position
 				else:
@@ -132,9 +134,14 @@ func _fixed_process(delta):
 				rayPoints.append(ray.position)
 				if ray.collider.get_name() == "Shield":
 					reflect = true
-					hitNormal = ray.normal
+					if hitNormal == null:
+						hitNormal = ray.normal
+					else:
+						hitNormal += ray.normal
 			else: rayPoints.append(Vector2(0,globalPointY))
 		hitPoint = nearestHit
+		if hitNormal != null:
+			hitNormal = hitNormal / hitCount
 		
 		if reflect:
 #			print(hitPoint)
@@ -142,12 +149,14 @@ func _fixed_process(delta):
 #			var ray = space_state.intersect_ray(
 #			Vector2(gpos.x,globalPointY), 
 #			Vector2(0,globalPointY))
-#	update()
+	update()
 #
-#func _draw():
-#	if firing:
-#		var gpos = mid.get_global_pos()
-#		for i in range(rayPoints.size()):
-#			draw_line(Vector2(0,rayPoints[i].y - gpos.y),
-#			Vector2(rayPoints[i].x - gpos.x, rayPoints[i].y - gpos.y), 
-#			Color(0,0,255))
+func _draw():
+	if reflect:
+		var gpos = mid.get_global_pos()
+		var localHit = hitPoint-gpos
+		var endPos = Vector2(1000*sin(hitNormal.x/360), 1000*cos(hitNormal.y/360))
+		draw_line(localHit,
+		endPos, 
+		Color(0,0,255),
+		10)

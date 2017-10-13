@@ -3,9 +3,9 @@
     {
       "time": 1,
       "event": 4,
-      "yaxis": 400,
+      "yaxis": 100,
 	  "xstop": 900,
-	  "ystop": 300
+	  "ystop": 800
     },
     {
       "time": 1,
