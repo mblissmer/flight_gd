@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scenes/Level1.gd" type="Script" id=1]
 [ext_resource path="res://objects/Backgrounds.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/InGameUI.tscn" type="PackedScene" id=4]
 
 [node name="Level1" type="Node2D"]
 
@@ -59,26 +60,7 @@ shortcut = null
 text = "Un-pause"
 flat = false
 
-[node name="HSlider" type="HSlider" parent="UILayer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 200.0
-margin/bottom = 16.0
-range/min = 0.0
-range/max = 100.0
-range/step = 10.0
-range/page = 0.0
-range/value = 1.0
-range/exp_edit = false
-range/rounded = false
-tick_count = 5
-ticks_on_borders = true
-focus_mode = 2
+[node name="InGameUI" parent="." instance=ExtResource( 4 )]
 
 [connection signal="pressed" from="UILayer/Popup/Button" to="." method="_on_Button_pressed"]
 

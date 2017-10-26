@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://images/heart1.png" type="Texture" id=1]
+[ext_resource path="res://images/heart2.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="heartEmpty" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+
+[node name="heartFull" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+centered = false
+
+

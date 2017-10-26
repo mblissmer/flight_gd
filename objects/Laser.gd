@@ -143,9 +143,9 @@ func _fixed_process(delta):
 		if hitNormal != null:
 			hitNormal = hitNormal / hitCount
 		
-		if reflect:
+#		if reflect:
 #			print(hitPoint)
-			print(hitNormal)
+#			print(hitNormal)
 #			var ray = space_state.intersect_ray(
 #			Vector2(gpos.x,globalPointY), 
 #			Vector2(0,globalPointY))
