@@ -18,8 +18,7 @@ func _ready():
 	if yStart > screensize.height/2:
 		ySpeed *= -1
 	size = get_node("Sprite").get_region_rect().size
-	
-	shotlayer = get_node("/root/Level1/Layer2/")
+	shotlayer = get_node("/root/Stage/Layer2/")
 	set_process(true)
 
 func _process(delta):

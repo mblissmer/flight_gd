@@ -5,7 +5,7 @@
 [ext_resource path="res://objects/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/InGameUI.tscn" type="PackedScene" id=4]
 
-[node name="Level1" type="Node2D"]
+[node name="Stage" type="Node2D"]
 
 script/script = ExtResource( 1 )
 
@@ -22,6 +22,8 @@ editor/display_folded = true
 [node name="Player" parent="Layer3" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 160.892, 95.7825 )
+
+[node name="Layer4" type="Node2D" parent="."]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

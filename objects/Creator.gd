@@ -9,12 +9,15 @@ var enemy3
 var timer = 0
 var currentPointer = 0
 var canTrigger = true
+var explosion = load("res://objects/explosion.tscn")
+var explosionLayer
 
 func _ready():
 	var file = File.new()
 	file.open(jsonfile, file.READ)
 	layout.parse_json(file.get_as_text())
 	file.close()
+	explosionLayer = get_node("/root/Stage/Layer4/")
 	set_process(true)
 
 func _process(delta):
@@ -45,3 +48,10 @@ func chooseSpawn(pointer):
 	var s = spawn.instance()
 	s.options = options
 	add_child(s)
+
+func explosion(loc, size):
+	var e = explosion.instance()
+	e.set_scale(Vector2(size,size))
+	e.set_pos(loc)
+	explosionLayer.add_child(e)
+	e.set_emitting(true)

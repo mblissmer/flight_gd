@@ -7,14 +7,14 @@
 offsets = FloatArray( 0, 0.51462, 1 )
 colors = ColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Node2D" type="Particles2D"]
 
 config/amount = 8
 config/lifetime = 0.5
+config/emit_timeout = 1.0
 config/emitting = false
 config/process_mode = 1
+config/explosiveness = 0.0
 config/texture = ExtResource( 1 )
 params/direction = 0.0
 params/spread = 180.0

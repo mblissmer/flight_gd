@@ -12,8 +12,10 @@ var swirlSpeedInc = 5
 var pickupCounter = 0
 var shieldOn = false
 var shield
+var hits
 
 func _ready():
+	hits = get_node()
 	shield = get_node("Shield")
 	screenSize = get_viewport_rect().size
 	playerSize = get_node("Sprite").get_region_rect().size
@@ -55,3 +57,5 @@ func pickup():
 #	if pickupCounter == swirls.size():
 #		shieldOn = true
 #		shield.show()
+func hit():
+	print("hit")
