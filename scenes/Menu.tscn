@@ -91,4 +91,6 @@ align = 0
 
 [connection signal="released" from="VBoxContainer/newGame" to="." method="_on_newGame_released"]
 
+[connection signal="released" from="VBoxContainer/quit" to="." method="_on_quit_released"]
+
 

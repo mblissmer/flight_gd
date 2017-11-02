@@ -15,7 +15,7 @@ var shield
 var hits
 
 func _ready():
-	hits = get_node()
+#	hits = get_node()
 	shield = get_node("Shield")
 	screenSize = get_viewport_rect().size
 	playerSize = get_node("Sprite").get_region_rect().size
